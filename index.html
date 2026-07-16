@@ -32,12 +32,14 @@
       <nav class="nav-links" aria-label="Primary">
         <a href="#features">SYSTEMS</a>
         <a href="#protocol">PROTOCOL</a>
-        <a href="#access">ACCESS</a>
+        <a href="#configure">CONFIGURE</a>
+        <a href="#identity">IDENTITY</a>
       </nav>
       <div class="nav-status">
         <span class="dot dot-live"></span>
         <span class="status-text">ONLINE · NODE ATL13</span>
       </div>
+      <button class="nav-auth" id="nav-auth" type="button" aria-label="Account">JACK IN</button>
     </header>
 
     <main>
@@ -54,7 +56,7 @@
             library you'd never finish alone.
           </p>
           <div class="hero-cta">
-            <a class="btn btn-primary" href="#access"><span class="btn-label">JACK IN</span><span class="btn-arrow">▶</span></a>
+            <a class="btn btn-primary" href="#identity"><span class="btn-label">JACK IN</span><span class="btn-arrow">▶</span></a>
             <a class="btn btn-ghost" href="#protocol">VIEW PROTOCOL</a>
           </div>
           <div class="hero-stats">
@@ -82,6 +84,35 @@
         </div>
       </section>
 
+      <section class="configure" id="configure">
+        <div class="configure-box">
+          <h2 class="section-title"><span class="hash">//</span> CONFIGURE UPLINK</h2>
+          <p class="configure-copy">Calibrate your archive to your region and exam board. ALEXANDRIA tunes recall to your syllabus.</p>
+          <div class="cascade">
+            <div class="cascade-field">
+              <label for="sel-region"><span class="cascade-n">01</span> REGION</label>
+              <select id="sel-region" class="cyber-select" aria-label="region">
+                <option value="">— select region —</option>
+              </select>
+            </div>
+            <div class="cascade-field">
+              <label for="sel-country"><span class="cascade-n">02</span> COUNTRY</label>
+              <select id="sel-country" class="cyber-select" aria-label="country" disabled>
+                <option value="">— select country —</option>
+              </select>
+            </div>
+            <div class="cascade-field">
+              <label for="sel-board"><span class="cascade-n">03</span> EXAM BOARD</label>
+              <select id="sel-board" class="cyber-select" aria-label="exam board" disabled>
+                <option value="">— select exam board —</option>
+              </select>
+            </div>
+          </div>
+          <div class="cascade-result" id="cascade-result" aria-live="polite"></div>
+          <button type="button" class="btn btn-primary" id="cascade-save"><span class="btn-label">LOCK CONFIG</span><span class="btn-arrow">▶</span></button>
+        </div>
+      </section>
+
       <section class="protocol" id="protocol">
         <h2 class="section-title"><span class="hash">//</span> PROTOCOL</h2>
         <ol class="protocol-steps">
@@ -91,15 +122,55 @@
         </ol>
       </section>
 
-      <section class="access" id="access">
-        <div class="access-box">
-          <h2 class="section-title center"><span class="hash">//</span> REQUEST ACCESS</h2>
-          <p class="access-copy">ALEXANDRIA is in closed alpha. Drop your uplink key to join the next cohort.</p>
-          <form class="access-form" onsubmit="return false;">
-            <input type="email" placeholder="your@uplink.id" aria-label="email uplink" />
-            <button type="submit" class="btn btn-primary"><span class="btn-label">REQUEST KEY</span><span class="btn-arrow">▶</span></button>
-          </form>
-          <p class="access-foot">No spam. No tracking. Just signal.</p>
+      <section class="identity" id="identity">
+        <div class="identity-box">
+          <h2 class="section-title center"><span class="hash">//</span> IDENTITY</h2>
+
+          <!-- Auth view: register / login -->
+          <div class="auth-view" id="auth-view">
+            <div class="auth-tabs" role="tablist">
+              <button class="auth-tab active" id="tab-register" role="tab" aria-selected="true">REGISTER</button>
+              <button class="auth-tab" id="tab-login" role="tab" aria-selected="false">LOGIN</button>
+            </div>
+
+            <form class="auth-form" id="form-register" autocomplete="on">
+              <input type="text" name="handle" placeholder="handle / username" aria-label="handle" autocomplete="username" />
+              <input type="email" name="email" placeholder="your@uplink.id" aria-label="email" autocomplete="email" />
+              <input type="password" name="password" placeholder="passphrase (≥ 6 chars)" aria-label="password" autocomplete="new-password" />
+              <button type="submit" class="btn btn-primary"><span class="btn-label">CREATE UPLINK</span><span class="btn-arrow">▶</span></button>
+            </form>
+
+            <form class="auth-form hidden" id="form-login" autocomplete="on">
+              <input type="email" name="email" placeholder="your@uplink.id" aria-label="email" autocomplete="email" />
+              <input type="password" name="password" placeholder="passphrase" aria-label="password" autocomplete="current-password" />
+              <button type="submit" class="btn btn-primary"><span class="btn-label">JACK IN</span><span class="btn-arrow">▶</span></button>
+            </form>
+
+            <p class="auth-msg" id="auth-msg" aria-live="polite"></p>
+            <p class="access-foot">No spam. No tracking. Just signal.</p>
+          </div>
+
+          <!-- Profile view: signed in -->
+          <div class="profile-view hidden" id="profile-view">
+            <div class="profile-head">
+              <div class="avatar-wrap">
+                <img class="avatar" id="profile-avatar" alt="profile picture" src="" />
+                <label class="avatar-edit" for="avatar-file" title="Change profile picture">✎</label>
+                <input type="file" id="avatar-file" accept="image/png,image/jpeg,image/webp,image/gif" hidden />
+              </div>
+              <div class="profile-meta">
+                <span class="profile-handle" id="profile-handle"></span>
+                <span class="profile-email" id="profile-email"></span>
+              </div>
+            </div>
+            <div class="profile-config" id="profile-config"></div>
+            <div class="profile-actions">
+              <button type="button" class="btn btn-ghost" id="btn-rename"><span class="btn-label">CHANGE HANDLE</span></button>
+              <button type="button" class="btn btn-ghost" id="btn-logout"><span class="btn-label">JACK OUT</span></button>
+            </div>
+            <p class="auth-msg" id="profile-msg" aria-live="polite"></p>
+            <p class="access-foot">Avatar: JPEG/PNG/WEBP/GIF · max 2 MB · auto-resized to 512px.</p>
+          </div>
         </div>
       </section>
     </main>
