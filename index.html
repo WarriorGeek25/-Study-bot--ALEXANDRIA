@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ALEXANDRIA — your cyberpunk study companion. The library of the future." />
+    <title>ALEXANDRIA // The Library of the Future</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div class="fx-scanlines" aria-hidden="true"></div>
+    <div class="fx-grid" aria-hidden="true"></div>
+    <div class="fx-noise" aria-hidden="true"></div>
+    <div class="fx-vignette" aria-hidden="true"></div>
+
+    <div class="bootline" id="bootline">
+      <span class="boot-prompt">alexandria://boot&gt;</span>
+      <span class="boot-text" id="boot-text"></span>
+      <span class="boot-cursor">▌</span>
+    </div>
+
+    <header class="nav">
+      <a class="brand" href="https://www.alexandria.com" aria-label="ALEXANDRIA home">
+        <span class="brand-mark">⌖</span>
+        <span class="brand-name glitch" data-text="ALEXANDRIA">ALEXANDRIA</span>
+        <span class="brand-tag">.com</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#features">SYSTEMS</a>
+        <a href="#protocol">PROTOCOL</a>
+        <a href="#access">ACCESS</a>
+      </nav>
+      <div class="nav-status">
+        <span class="dot dot-live"></span>
+        <span class="status-text">ONLINE · NODE ATL13</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="top">
+        <div class="hero-inner">
+          <p class="hero-eyebrow"><span class="eyebrow-bracket">[</span> SYS-ALEX // v0.1 ALPHA <span class="eyebrow-bracket">]</span></p>
+          <h1 class="hero-title">
+            <span class="line glitch" data-text="THE LIBRARY">THE LIBRARY</span>
+            <span class="line glitch accent" data-text="OF THE FUTURE">OF THE FUTURE</span>
+          </h1>
+          <p class="hero-sub">
+            ALEXANDRIA is a cyberpunk study companion — a neural archive that learns
+            the way you read, surfaces what you forgot, and quietly builds the
+            library you'd never finish alone.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#access"><span class="btn-label">JACK IN</span><span class="btn-arrow">▶</span></a>
+            <a class="btn btn-ghost" href="#protocol">VIEW PROTOCOL</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat"><span class="stat-num">01</span><span class="stat-label">FRONT SCREEN</span></div>
+            <div class="stat"><span class="stat-num">∞</span><span class="stat-label">ARCHIVE CAP</span></div>
+            <div class="stat"><span class="stat-num">24/7</span><span class="stat-label">UPLINK</span></div>
+          </div>
+        </div>
+
+        <aside class="term" aria-hidden="true">
+          <div class="term-bar">
+            <span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span>
+            <span class="term-title">alexandria@core:~/</span>
+          </div>
+          <pre class="term-body" id="term-body"></pre>
+        </aside>
+      </section>
+
+      <section class="features" id="features">
+        <h2 class="section-title"><span class="hash">//</span> CORE SYSTEMS</h2>
+        <div class="card-grid">
+          <article class="card"><div class="card-icon">⌬</div><h3>NEURAL ARCHIVE</h3><p>Ingests your notes, papers and stray thoughts into a living graph you can query like a city map.</p></article>
+          <article class="card"><div class="card-icon">⧉</div><h3>RECALL ENGINE</h3><p>Surfaces what you half-remembered before you finish the question. Forgetting is no longer fatal.</p></article>
+          <article class="card"><div class="card-icon">∿</div><h3>STUDY PROTOCOL</h3><p>A spaced-repetition rhythm tuned to your circadian noise. Learn deeper with less screen-time.</p></article>
+        </div>
+      </section>
+
+      <section class="protocol" id="protocol">
+        <h2 class="section-title"><span class="hash">//</span> PROTOCOL</h2>
+        <ol class="protocol-steps">
+          <li><span class="step-n">01</span><div><h4>CONNECT</h4><p>Authenticate your uplink at www.alexandria.com.</p></div></li>
+          <li><span class="step-n">02</span><div><h4>INGEST</h4><p>Feed the archive. Notes, PDFs, lectures, raw markdown.</p></div></li>
+          <li><span class="step-n">03</span><div><h4>RECALL</h4><p>Ask. The library answers in the language you wrote it in.</p></div></li>
+        </ol>
+      </section>
+
+      <section class="access" id="access">
+        <div class="access-box">
+          <h2 class="section-title center"><span class="hash">//</span> REQUEST ACCESS</h2>
+          <p class="access-copy">ALEXANDRIA is in closed alpha. Drop your uplink key to join the next cohort.</p>
+          <form class="access-form" onsubmit="return false;">
+            <input type="email" placeholder="your@uplink.id" aria-label="email uplink" />
+            <button type="submit" class="btn btn-primary"><span class="btn-label">REQUEST KEY</span><span class="btn-arrow">▶</span></button>
+          </form>
+          <p class="access-foot">No spam. No tracking. Just signal.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="foot-left"><span class="brand-mark">⌖</span> ALEXANDRIA · The library of the future.</div>
+      <div class="foot-right">
+        <a href="https://www.alexandria.com">www.alexandria.com</a>
+        <span class="dim">·</span>
+        <span class="dim">© 2026 ALEXANDRIA SYSTEMS</span>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
