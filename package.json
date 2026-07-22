@@ -2,6 +2,7 @@
   "name": "alexandria",
   "version": "0.2.0",
   "private": true,
+  "type": "module",
   "description": "ALEXANDRIA — a cyberpunk study companion. Combined website: front screen + configurable uplink + identity.",
   "homepage": "https://www.alexandria.com",
   "scripts": {
