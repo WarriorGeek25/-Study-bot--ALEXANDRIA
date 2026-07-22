@@ -11,5 +11,5 @@
   },
   "keywords": ["alexandria", "cyberpunk", "study-bot"],
   "license": "MIT",
-  "devDependencies": { "vite": "^5.4.0" }
+  "devDependencies": { "vite": "^6.0.0" }
 }
